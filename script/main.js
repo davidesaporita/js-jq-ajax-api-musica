@@ -9,14 +9,24 @@ $(document).ready(function() {
 	// Handlebars init
 	var cdTemplate = Handlebars.compile($('#box-template').html());
 
-	// Handlebars test
-	var data = {
-		imgUrl: 'https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg',
-		title: 'Titolo',
-		author: 'Autore',
-		year: '1984'
-	}
-	
-	container.append(cdTemplate(data));
+	// API call
+	$.ajax({
+		url: apiUrl,
+		method: 'GET',
+		success: (data) => {
+			disks = data.response;
+			disks.forEach(item => {
+				var cd = {
+					imgUrl: item.poster,
+					title:  item.title,
+					author: item.author,
+					year:   item.year
+				}
+				container.append(cdTemplate(cd));
+			});
+		},
+		error: () => console.log('Error')
 
-});
+	}); // End of API call
+
+}); // End of ready function
