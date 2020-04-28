@@ -17,7 +17,7 @@
 
         <div class="cds-container container"></div>
 
-        <!-- Handlebars template -->
+        <!-- Handlebars templates -->
         <script id="box-template" type="text/x-handlebars-template">
             <div class="cd">
                 <img src="{{ imgUrl }}" alt="{{ title }} - {{ author }}">
@@ -25,6 +25,15 @@
                 <span class="author">{{ author }}</span>
                 <span class="year">{{ year }}</span>
             </div>
+        </script>
+
+        <script id="select-template" type="text/x-handlebars-template">
+            <select name="genre-select" id="genre-select"></select>
+        </script>
+        
+
+        <script id="options-template" type="text/x-handlebars-template">
+            <option class="genre-option" value="{{ value }}" {{ selected }}>{{ option }}</option>
         </script>
                 
 
