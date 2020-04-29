@@ -27,7 +27,8 @@ $(document).ready(function() {
 				if(!genresList.includes(item.genre)) {
 					genresList.push(item.genre);
 				}
-			}, setTimeout(createSelect, 1000)); // Callback function at the end of albums.forEach to create a selectbox
+			}); // End of foreach
+			createSelect();
 		}, 
 		error: () => console.log('Error')
 	}); // End of API call
